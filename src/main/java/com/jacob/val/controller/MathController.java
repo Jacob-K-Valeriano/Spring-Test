@@ -1,33 +1,35 @@
 package com.jacob.val.controller;
 
-
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class MathController {
 
-    @RequestMapping(path = "/add/{num1}/and/{num2}", method = RequestMethod.GET)
+    @GetMapping("/add/{num1}/and/{num2}")
     @ResponseBody
-    public String add (@PathVariable int num1, @PathVariable int num2) {
-        return num1 + " plus 4 is " + (num1 + num2);
+    public String add(@PathVariable int num1, @PathVariable int num2) {
+        return Integer.toString(num1 + num2);
     }
-    @RequestMapping(path = "/subtract/{num1}/from/{num2}", method = RequestMethod.GET)
+
+    @GetMapping("/subtract/{num1}/from/{num2}")
     @ResponseBody
     public String subtract(@PathVariable int num1, @PathVariable int num2) {
-        return " subtract 3 from 10 = " + (num2 - num1);
+        return Integer.toString(num1 - num2);
     }
 
-    @RequestMapping(path = "/multiply/{num1}/and/{num2}", method = RequestMethod.GET)
+    @GetMapping("/multiply/{num1}/and/{num2}")
     @ResponseBody
     public String multiply(@PathVariable int num1, @PathVariable int num2) {
-        return "multiply 4 and 5 = " + (num1 * num2);
+        return Integer.toString(num1 * num2);
     }
 
-    @RequestMapping(path = "/divide/{num2}/by/{num1}", method = RequestMethod.GET)
+    @GetMapping("/divide/{num1}/by/{num2}")
     @ResponseBody
     public String divide(@PathVariable int num1, @PathVariable int num2) {
-        return "divide 6 by 3 = " + (num2 / num1);
+        return Integer.toString(num1 / num2);
     }
 
 }
