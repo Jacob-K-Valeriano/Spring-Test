@@ -21,3 +21,21 @@
 //    List<Ad> coolMethodThree(@Param("minLength") int minLength);
 //
 //}
+
+
+import com.jacob.val.controller.OneToOne;
+
+@Entity
+public class Company {
+
+	@OneToMany(cascade = CascadeType.ALL)
+	private Ceo ceo;
+	//for user view with thymeleaf we can reach that info by;
+	${company.ceo.name}
+}
+@Entity
+public class Ceo {
+
+}
+
+
